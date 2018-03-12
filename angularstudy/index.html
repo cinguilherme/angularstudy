@@ -43,7 +43,7 @@
         ng-repeat="contato in contatos | filter:criterioDeBusca  | limitTo:6 | orderBy:criterioDeOrdenacao:direcaoOrdenacao">
 
           <td><input type="checkbox" ng-model="contato.selecionado"></td>
-          <td>{{contato.serial}}</td>
+          <td style="font-size: 11px">{{contato.serial | limitTo:5}}</td>
           <td>{{contato.nome | nomePessoa}}</td>
           <td>{{contato.telefone}}</td>
           <td>{{contato.operadora.nome}}</td>
