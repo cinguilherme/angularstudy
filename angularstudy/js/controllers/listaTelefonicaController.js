@@ -2,11 +2,7 @@ angular.module("listaTelefonica").controller("listaTelefonicaController", functi
 
   $scope.app = "Lista Telefonica!!!";
 
-  $scope.contatos = [
-    {nome: $filter('uppercase')("Pedro"), telefone: "88889999", data: new Date(), operadora:{nome:"Vivo", codigo:"1", categoria:"Cel"}, cor: "blue"},
-    {nome: $filter('uppercase')("Maria"), telefone: "88885555", data: new Date(), operadora:{nome:"Oi", codigo:"1", categoria:"Cel"}, cor: "yellow"},
-    {nome: $filter('uppercase')("Manuela"), telefone: "88887777", data: new Date(), operadora:{nome:"Claro", codigo:"1", categoria:"Cel"}, cor: "black"}
-  ];
+  $scope.contatos = [];
 
   $scope.operadoras = [];
 
@@ -33,15 +29,12 @@ angular.module("listaTelefonica").controller("listaTelefonicaController", functi
     $scope.contatos = contatos.filter(function(contato){
       if(!contato.selecionado) return contato;
     });
-
-
   }
 
   $scope.isContatosSelecionados = function(contatos){
     return !contatos.some(function(contato){
       return contato.selecionado;
     });
-
   }
 
   $scope.ordenarPor = function(coluna){
@@ -49,7 +42,6 @@ angular.module("listaTelefonica").controller("listaTelefonicaController", functi
     $scope.criterioDeOrdenacao = coluna;
     $scope.direcaoOrdenacao = !$scope.direcaoOrdenacao;
   }
-
 
   var carregarContatos = function(){
     contatosAPI.getContatos().success(function(data, status){
@@ -70,5 +62,5 @@ angular.module("listaTelefonica").controller("listaTelefonicaController", functi
 
   carregarContatos();
   carregarOperadoras();
-  console.log(serialGenerator.generate());
+
 });

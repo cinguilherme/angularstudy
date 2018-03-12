@@ -20,6 +20,8 @@
     <script type="text/javascript" src="js/services/serialGeneratorService.js"></script>
     <script type="text/javascript" src="js/config/serialGeneratorConfig.js"></script>
 
+    <script type="text/javascript" src="js/filters/nomePessoaFilter.js"></script>
+
   </head>
   <body>
     <div class="jumbotron" ng-controller="listaTelefonicaController">
@@ -38,11 +40,11 @@
           <th><a href="#" ng-click="ordenarPor('data')">Data</a></th>
         </tr>
         <tr ng-class="{'negrito selecionado' : contato.selecionado}"
-        ng-repeat="contato in contatos | filter:criterioDeBusca  | limitTo:4 | orderBy:criterioDeOrdenacao:direcaoOrdenacao">
+        ng-repeat="contato in contatos | filter:criterioDeBusca  | limitTo:6 | orderBy:criterioDeOrdenacao:direcaoOrdenacao">
 
           <td><input type="checkbox" ng-model="contato.selecionado"></td>
           <td>{{contato.serial}}</td>
-          <td>{{contato.nome}}</td>
+          <td>{{contato.nome | nomePessoa}}</td>
           <td>{{contato.telefone}}</td>
           <td>{{contato.operadora.nome}}</td>
           <td>{{contato.data | date:'dd/MM/yy HH:mm'}}</td>
