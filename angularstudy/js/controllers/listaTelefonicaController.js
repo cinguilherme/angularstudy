@@ -7,14 +7,10 @@ function($scope, $filter, contatosAPI, operadorasAPI, serialGenerator){
 
   $scope.operadoras = [];
 
-  $scope.contato = {
-      data: 1318215600000
-  }
-
   $scope.addContato = function(contato){
 
     contato.serial = serialGenerator.generate();
-    contato.data = new Date();
+    
     $scope.contatos.push(angular.copy(contato));
 
     contatosAPI.saveContato(angular.copy(contato)).
