@@ -26,6 +26,7 @@
 
     <script type="text/javascript" src="js/directives/uiAlertDirective.js"></script>
     <script type="text/javascript" src="js/directives/uiDateDirective.js"></script>
+    <script type="text/javascript" src="js/directives/uiNumeroTelefonicoDirective.js"></script>
 
   </head>
   <body>
@@ -69,9 +70,11 @@
         ng-model="contato.nome" placeholder="Nome" ng-required="true" ng-minlength="3">
 
         <input class="form-control" type="text" name="telefone"
-        ng-model="contato.telefone" placeholder="Telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/">
+        ng-model="contato.telefone" placeholder="Telefone"
+        ng-required="true" ui-num-tel>
 
-        <input type="text" class="form-control" name="data" ng-model="contato.data" placeholder="dd/MM/AAAA" ui-date>
+        <input type="text" class="form-control" name="data"
+        ng-model="contato.data" placeholder="dd/MM/AAAA" ui-date>
 
         <select class="form-control" ng-model="contato.operadora"
         ng-options="operadora.nome + ' ( ' + (operadora.preco | currency) + ' ) ' group by operadora.categoria for operadora in operadoras | orderBy:'nome'">
