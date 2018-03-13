@@ -5,8 +5,8 @@ angular.module("listaTelefonica").directive("uiAlert", function(){
     replace: true,
     restrict: "E",
     scope: {
-      title: "@",
-      erro: "="
-    }
+      title: "@"
+    },
+    transclude: true
   };
 });

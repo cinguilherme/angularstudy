@@ -32,9 +32,9 @@
 
       <h3>{{app}}</h3>
 
-      <ui-alert ng-if="errorContatos"
-      title="Ops, aconteceu um problema."
-      erro="errorContatos" ></ui-alert>
+      <ui-alert ng-if="errorContatos" title="Ops, aconteceu um problema.">
+        {{errorContatos}}
+      </ui-alert>
 
       <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Oque você esta buscando?">
       <table class="table ">
