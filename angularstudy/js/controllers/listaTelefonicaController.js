@@ -1,10 +1,15 @@
-angular.module("listaTelefonica").controller("listaTelefonicaController", function($scope, $filter, contatosAPI, operadorasAPI, serialGenerator){
+angular.module("listaTelefonica").controller("listaTelefonicaController",
+function($scope, $filter, contatosAPI, operadorasAPI, serialGenerator){
 
   $scope.app = "Lista Telefonica!!!";
 
   $scope.contatos = [];
 
   $scope.operadoras = [];
+
+  $scope.contato = {
+      data: 1318215600000
+  }
 
   $scope.addContato = function(contato){
 

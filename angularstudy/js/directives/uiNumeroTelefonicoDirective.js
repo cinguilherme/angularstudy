@@ -24,7 +24,6 @@ angular.module("listaTelefonica").directive("uiNumTel", function(){
       }
 
       element.bind("keyup", function(){
-        console.log(ctrl.$viewValue);
         ctrl.$setViewValue(formatNumTel(ctrl.$viewValue));
         ctrl.$render();
       });

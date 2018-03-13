@@ -20,10 +20,19 @@ angular.module("listaTelefonica").directive("uiDate", function($filter){
         ctrl.$render();
       });
 
+
       ctrl.$formatters.push(function(value){
-        return $filter("date")(value,"dd/MM/AAAA");
+        return $filter("date")(value,"dd/MM/yyyy");
       });
 
+
+      ctrl.$parsers.push(function(value){
+        if(value.length == 10){
+          valores = value.split("/");
+          return new Date(valores[2],valores[1]-1,valores[0]).getTime();
+        }
+        return value;
+      });
 
     }
   };
