@@ -29,6 +29,9 @@ angular.module("listaTelefonica").directive("uiNumTel", function(){
         ctrl.$render();
       });
 
+      ctrl.$parsers.push(function(value){
+        return value.replace(/[^0-9]+/g, "");
+      });
 
     }
   }
