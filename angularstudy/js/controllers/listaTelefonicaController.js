@@ -48,7 +48,9 @@ angular.module("listaTelefonica").controller("listaTelefonicaController", functi
       console.log("sucess -> load contatos from backend as JSON");
       $scope.contatos = data;
     }).error(function(data, status){
-      console.log("erro -> " + JSON.stringify(data) );
+      //console.log("erro -> " + JSON.stringify(data) );
+      console.log("erro contatos api");
+      $scope.errorContatos = "Não foi possivel carregar os contatos.";
     });
   }
 

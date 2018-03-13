@@ -1,17 +1,13 @@
 angular.module("listaTelefonica").filter("nomePessoa", function(){
 
   return function(input) {
-
     var nomes = input.split(" ");
-    var nomeFiltrado = "";
+    var listaFormatada = nomes.map(function(nome){
+      if (nome.length < 3) return nome;
+        return nome.charAt(0).toUpperCase() + nome.substring(1).toLowerCase();
+    });
 
-    for(var i = 0; i < nomes.length; i++){
-      nomeFiltrado += nomes[i].length > 2? nomes[i][0].toUpperCase()+nomes[i].substring(1) + " ": nomes[i]+" ";
-    }
-
-    console.log(nomeFiltrado.trim());
-
-    return nomeFiltrado;
+    return listaFormatada.join(" ");
   };
 
 });

@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="lib/bootstrap/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/ui.css">
 
     <script src="lib/angular/angular.js"></script>
 
@@ -21,12 +22,18 @@
     <script type="text/javascript" src="js/config/serialGeneratorConfig.js"></script>
 
     <script type="text/javascript" src="js/filters/nomePessoaFilter.js"></script>
+    <script type="text/javascript" src="js/filters/elipsisFilter.js"></script>
+
+    <script type="text/javascript" src="js/directives/uiAlertDirective.js"></script>
 
   </head>
   <body>
     <div class="jumbotron" ng-controller="listaTelefonicaController">
 
       <h3>{{app}}</h3>
+
+      <div ui-alert>
+      </div>
 
       <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Oque você esta buscando?">
       <table class="table ">
@@ -44,7 +51,7 @@
 
           <td><input type="checkbox" ng-model="contato.selecionado"></td>
           <td style="font-size: 11px">{{contato.serial | limitTo:5}}</td>
-          <td>{{contato.nome | nomePessoa}}</td>
+          <td>{{contato.nome | nomePessoa | elipsis}}</td>
           <td>{{contato.telefone}}</td>
           <td>{{contato.operadora.nome}}</td>
           <td>{{contato.data | date:'dd/MM/yy HH:mm'}}</td>
