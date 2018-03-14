@@ -1,0 +1,41 @@
+.jumbotron {
+  width: 750px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.table {
+  margin-top: 20px;
+}
+
+.form-control {
+  margin-bottom: 5px;
+}
+
+.negrito {
+  font-weight: bold;
+}
+
+.selecionado {
+  background-color: #12121212;
+}
+
+.ui-alert{
+  background-color: #F2DEDE;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ui-alert-title{
+  color: #AF4341;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.ui-alert-message{
+  color: #AF4341;
+}

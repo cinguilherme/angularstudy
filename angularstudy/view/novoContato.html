@@ -1,0 +1,49 @@
+<div class="jumbotron">
+<form name="contatoForm">
+
+  <input class="form-control" type="text" name="nome"
+  ng-model="contato.nome" placeholder="Nome" ng-required="true" ng-minlength="3">
+
+
+  <input class="form-control" type="text" name="telefone"
+  ng-model="contato.telefone" placeholder="Telefone"
+  ng-required="true" ui-num-tel>
+
+  <input type="text" class="form-control" name="data"
+  ng-model="contato.data" placeholder="Data em formato dd/MM/AAAA" ui-date>
+
+
+  <select class="form-control" ng-model="contato.operadora"
+  ng-options="operadora.nome + ' ( ' + (operadora.preco | currency) + ' ) ' group by operadora.categoria for operadora in operadoras | orderBy:'nome'">
+    <option value="">Selecione uma operadora</option>
+  </select>
+
+
+</form>
+
+<div  ng-messages="contatoForm.nome.$error" ng-show="contatoForm.nome.$dirty">
+  <div  class="alert alert-danger" ng-message="required">
+    Por favor, preencha o nome.
+  </div>
+  <div class="alert alert-danger" ng-message="minlength">
+    Campo nome deve ter no mínimo 3 caracteres.
+  </div>
+</div>
+
+<div ng-messages="contatoForm.telefone.$error" ng-show="contatoForm.telefone.$dirty">
+  <div class="alert alert-danger" ng-message="required">
+    Por favor, preencha o telefone.
+  </div>
+  <div class="alert alert-danger" ng-message="pattern">
+    Formato de telefone incorreto, DDDDD-DDDD.
+  </div>
+</div>
+
+
+
+<button class="btn btn-primary btn-block" type="button"
+ng-click="addContato(contato)"
+ng-disabled="contatoForm.$invalid" >Add Contato</button>
+
+
+</div>
