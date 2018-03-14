@@ -1,5 +1,12 @@
+angular.module("ui", []);
 
-angular.module("listaTelefonica").directive("uiAccordions", function(){
+angular.module("ui").run(function($templateCache){
+
+  $templateCache.put("view/accordion.html",'<div class="ui-accordion-title" ng-click="open()">{{title}}</div>  <div class="ui-accordion-content" ng-show="isOpened" ng-transclude></div>');
+
+});
+
+angular.module("ui").directive("uiAccordions", function(){
 
   return {
     controller: function($scope, $element, $attrs){
@@ -21,7 +28,7 @@ angular.module("listaTelefonica").directive("uiAccordions", function(){
 
 });
 
-angular.module("listaTelefonica").directive("uiAccordion", function(){
+angular.module("ui").directive("uiAccordion", function(){
 
   return {
     templateUrl: "view/accordion.html",
