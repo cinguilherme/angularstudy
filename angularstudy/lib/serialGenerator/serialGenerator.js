@@ -1,8 +1,8 @@
-angular.module("listaTelefonica").provider("serialGenerator", function(config){
+angular.module("serialGenerator", []);
+
+angular.module("serialGenerator").provider("serialGenerator", function(){
 
   var _length = 10;
-
-  _length = config.defaultSerialLen;
 
   this.getLength = function() {
     return _length;
