@@ -1,12 +1,7 @@
 angular.module("listaTelefonica").controller("detalheContatoController",
-  function($scope, $routeParams, contatosAPI){
+  function($scope, $routeParams, contato){
 
-    $scope.contato = {};
-    console.log($routeParams.serial);
-
-    contatosAPI.getContato($routeParams.serial).success(function(data){
-      console.log(data);
-      $scope.contato = data;
-    });
+    $scope.contato = contato.data;
+    
 
 });

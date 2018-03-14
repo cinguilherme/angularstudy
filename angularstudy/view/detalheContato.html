@@ -1,6 +1,22 @@
 <div class="jumbotron">
 
-  lalalala
-  {{contato}}
+
+  <table class="table">
+
+    <tr>
+      {{contato.nome}}
+    </tr>
+    <tr>
+      {{contato.operadora.nome}}
+    </tr>
+    <tr>
+      {{contato.telefone}}
+    </tr>
+
+  </table>
+
+  <hr>
+
+  <a href="#/contatos" class="btn btn-block">Voltar</a>
 
 </div>

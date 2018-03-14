@@ -22,7 +22,13 @@ angular.module("listaTelefonica").config(function($routeProvider){
 
   $routeProvider.when("/detalharContato/:serial",{
     templateUrl: "view/detalheContato.html",
-    controller: "detalheContatoController"
+    controller: "detalheContatoController",
+    resolve: {
+      contato: function(contatosAPI, $route){
+        var serial = $route.current.params.serial;
+        return contatosAPI.getContato(serial);
+      }
+    }
   });
 
   $routeProvider.otherwise({ redirectTo: "/contatos"});
