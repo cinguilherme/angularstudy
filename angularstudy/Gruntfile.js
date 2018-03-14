@@ -2,30 +2,20 @@
 module.exports = function(grunt){
 
 
-  grunt.registerTask("speak", function(){
-    console.log("speak task");
-  });
-
-  grunt.registerTask("yell", function(){
-    console.log("yell task");
-  });
-
-  grunt.registerTask("default", ['yell', 'speak']);
-
-
-
-
 
   grunt.initConfig({
     concat: {
-      options: {
-        separator: ';',
+      js: {
+        src: ['js/config/routeConfig.js', 'js/config/serialGeneratorConfig.js'],
+        dest: 'dist/js/config.js',
       },
-      dist: {
-        src: ['src/intro.js', 'src/project.js', 'src/outro.js'],
-        dest: 'dist/built.js',
+      css: {
+        src: ['css/app.css', 'css/ui.css'],
+        dest: 'dist/css/styles.css',
       },
     },
   });
+
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
 };
