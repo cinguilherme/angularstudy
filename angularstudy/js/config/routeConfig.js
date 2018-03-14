@@ -20,6 +20,11 @@ angular.module("listaTelefonica").config(function($routeProvider){
     }
   });
 
+  $routeProvider.when("/detalharContato/:serial",{
+    templateUrl: "view/detalheContato.html",
+    controller: "detalheContatoController"
+  });
+
   $routeProvider.otherwise({ redirectTo: "/contatos"});
 
 });

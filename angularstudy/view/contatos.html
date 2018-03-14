@@ -22,7 +22,7 @@
 
       <td><input type="checkbox" ng-model="contato.selecionado"></td>
       <td style="font-size: 11px">{{contato.serial | limitTo:5}}</td>
-      <td>{{contato.nome | nomePessoa | elipsis}}</td>
+      <td><a href="#/detalharContato/:{{contato.serial}}">{{contato.nome | nomePessoa}}</a></td>
       <td>{{contato.telefone}}</td>
       <td>{{contato.operadora.nome}}</td>
       <td>{{contato.data | date:'dd/MM/yy HH:mm'}}</td>

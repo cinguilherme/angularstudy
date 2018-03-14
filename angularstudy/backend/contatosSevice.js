@@ -38,7 +38,7 @@
 
 
   var contatos = [
-    {nome: "Pedro", telefone: "88889999", data: new Date(), operadora:{nome:"Vivo", codigo:"1", categoria:"Cel"}, cor: "blue"},
+    {nome: "Pedro", telefone: "88889999", data: new Date(), operadora:{nome:"Vivo", codigo:"1", categoria:"Cel"}, cor: "blue", serial: "8374834"},
     {nome: "Maria", telefone: "88885555", data: new Date(), operadora:{nome:"Oi", codigo:"1", categoria:"Cel"}, cor: "yellow"},
     {nome: "Manuela", telefone: "88887777", data: new Date(), operadora:{nome:"Claro", codigo:"1", categoria:"Cel"}, cor: "black"}
   ];
@@ -57,6 +57,25 @@
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.send(JSON.stringify(contatos));
+  });
+
+  app.get('/contatos/:serial', function (req, res) {
+    res.setHeader('X-Frame-Options', 'ALLOWALL');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
+    var serial = req.param('serial').substring(1);
+
+    var contato = contatos.filter(function(con){
+      if(con.serial == serial){
+        return con;
+      }
+    });
+
+    console.log(contato);
+
+    res.send(JSON.stringify(contato[0]));
   });
 
   app.post('/contatos/add',function(req, res, next){
