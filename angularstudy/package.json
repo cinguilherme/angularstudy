@@ -13,10 +13,12 @@
   "license": "ISC",
   "dependencies": {
     "grunt": "^1.0.2",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.4"
   },
   "devDependencies": {
     "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-watch": "^1.0.0"
+    "grunt-contrib-watch": "^1.0.0",
+    "gulp-concat": "^2.6.1"
   }
 }
